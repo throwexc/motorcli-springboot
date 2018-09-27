@@ -188,3 +188,5 @@ motorcli-springboot-web/target/maven-archiver/pom.properties
 motorcli-springboot-web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
 motorcli-springboot-web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 motorcli-springboot.iml
+.idea/dictionaries/Li.xml
+motorcli-springboot-restful/motorcli-springboot-restful.iml

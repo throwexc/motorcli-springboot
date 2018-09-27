@@ -162,6 +162,6 @@
         <module>motorcli-springboot-datasource</module>
         <module>motorcli-springboot-mybatis</module>
         <module>motorcli-springboot-mongodb</module>
-        <module>motorcli-springboot-restfull</module>
+        <module>motorcli-springboot-restful</module>
     </modules>
 </project>
