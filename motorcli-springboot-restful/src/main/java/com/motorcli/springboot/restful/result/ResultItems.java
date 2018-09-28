@@ -1,8 +1,6 @@
 package com.motorcli.springboot.restful.result;
 
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.List;
 
@@ -10,8 +8,6 @@ import java.util.List;
  * 通用返回结果
  * 多数据返回结果
  */
-@Getter
-@Setter
 public class ResultItems<T> extends Result {
 
     @ApiModelProperty("数据集合")
@@ -29,6 +25,7 @@ public class ResultItems<T> extends Result {
     @ApiModelProperty("总页数")
     private Integer totalPage;
 
+    @ApiModelProperty("当前页数")
     private Integer page;
 
     public ResultItems(int code) {
@@ -64,6 +61,54 @@ public class ResultItems<T> extends Result {
     public ResultItems(int code, String info, List<T> items, int page, long total, int totalPage) {
         this(code, info, items,total);
         this.totalPage = totalPage;
+        this.page = page;
+    }
+
+    public List<T> getItems() {
+        return items;
+    }
+
+    public void setItems(List<T> items) {
+        this.items = items;
+    }
+
+    public Long getTotal() {
+        return total;
+    }
+
+    public void setTotal(long total) {
+        this.total = total;
+    }
+
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Integer getTotalPage() {
+        return totalPage;
+    }
+
+    public void setTotalPage(int totalPage) {
+        this.totalPage = totalPage;
+    }
+
+    public Integer getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
         this.page = page;
     }
 }
