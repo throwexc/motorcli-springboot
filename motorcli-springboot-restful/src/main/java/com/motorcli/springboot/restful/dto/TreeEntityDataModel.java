@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class TreeEntityDataModel<T> extends EntityDataModel<T> {
+public abstract class TreeEntityDataModel<T> extends EntityDataModel<T> {
 
     @ApiModelProperty("id")
     protected String id;
@@ -17,7 +17,7 @@ public class TreeEntityDataModel<T> extends EntityDataModel<T> {
     protected String parentId;
 
     @ApiModelProperty("子节点")
-    protected List<TreeEntityDataModel> children;
+    protected List<?> children;
 
     public TreeEntityDataModel() {}
 

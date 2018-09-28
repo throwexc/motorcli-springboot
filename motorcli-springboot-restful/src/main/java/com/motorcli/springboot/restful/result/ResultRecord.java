@@ -1,12 +1,15 @@
 package com.motorcli.springboot.restful.result;
 
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 通用返回结果
+ * 单数据返回结果
  */
-@ApiModel("单条数据返回结果")
+@Getter
+@Setter
 public class ResultRecord<T> extends Result {
 
     @ApiModelProperty("返回结果记录")
@@ -34,29 +37,5 @@ public class ResultRecord<T> extends Result {
     public ResultRecord(int code, String info, T record) {
         super(code, info);
         this.record = record;
-    }
-
-    public T getRecord() {
-        return record;
-    }
-
-    public void setRecord(T record) {
-        this.record = record;
-    }
-
-    public String getIdentifier() {
-        return identifier;
-    }
-
-    public void setIdentifier(String identifier) {
-        this.identifier = identifier;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
     }
 }
