@@ -58,6 +58,8 @@ public class ClassUtils {
             if (targetType.equals("java.lang.String")) { // 目标类型为字符串
                 if (valueType.equals("java.util.Date")) {
                     ReflectionUtils.setField(targetField, targetObject, DateUtils.formatDate((Date) value, dateTimeFormat));
+                } else if(value instanceof List || value instanceof Set || value instanceof Map) { // 不做集合到字符串的映射
+                    return;
                 } else {
                     ReflectionUtils.setField(targetField, targetObject, value.toString());
                 }
@@ -154,11 +156,7 @@ public class ClassUtils {
             Field srcField = ReflectionUtils.findField(srcObject.getClass(), field.getName());
 
             if(srcField != null) {
-                Class srcFieldType = srcField.getType();
-                // 不映射集合类型
-                if(!srcFieldType.isAssignableFrom(List.class) && !srcFieldType.isAssignableFrom(Set.class) && !srcFieldType.isAssignableFrom(Map.class)) {
-                    mappingField(srcObject, srcField, targetObject, field, dateFormat, dateTimeFormat);
-                }
+                mappingField(srcObject, srcField, targetObject, field, dateFormat, dateTimeFormat);
             }
         }, ReflectionUtils.COPYABLE_FIELDS);
     }
