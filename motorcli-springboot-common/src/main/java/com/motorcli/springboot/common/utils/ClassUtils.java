@@ -7,7 +7,9 @@ import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Slf4j
 public class ClassUtils {
@@ -130,7 +132,6 @@ public class ClassUtils {
      * @param <X> 目标对象类型
      */
     public static <T, X> void mappingField(final T srcObject, final Field srcField, final X targetObject, final Field targetField, final String dateFormat, final String dateTimeFormat) {
-        String srcType = srcField.getType().getName();
 
         ReflectionUtils.makeAccessible(srcField);
 
@@ -153,7 +154,11 @@ public class ClassUtils {
             Field srcField = ReflectionUtils.findField(srcObject.getClass(), field.getName());
 
             if(srcField != null) {
-                mappingField(srcObject, srcField, targetObject, field, dateFormat, dateTimeFormat);
+                Class srcFieldType = srcField.getType();
+                // 不映射集合类型
+                if(!srcFieldType.isAssignableFrom(List.class) && !srcFieldType.isAssignableFrom(Set.class) && !srcFieldType.isAssignableFrom(Map.class)) {
+                    mappingField(srcObject, srcField, targetObject, field, dateFormat, dateTimeFormat);
+                }
             }
         }, ReflectionUtils.COPYABLE_FIELDS);
     }
