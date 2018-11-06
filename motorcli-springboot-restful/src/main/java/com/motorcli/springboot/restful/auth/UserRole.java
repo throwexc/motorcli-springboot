@@ -4,7 +4,6 @@ public class UserRole {
 
     private String roleName;
 
-
     public UserRole() {
     }
 

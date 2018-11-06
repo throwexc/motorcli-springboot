@@ -1,7 +1,7 @@
 $(function() {
     var springfox = {
         "baseUrl": function() {
-            var urlMatches = /(.*)\/swagger-ui.html.*/.exec(window.location.href);
+            var urlMatches = /(.*)\/api.html.*/.exec(window.location.href);
             return urlMatches[1];
         },
         "securityConfig": function(cb) {
