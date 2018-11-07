@@ -1,7 +1,6 @@
 package com.motorcli.springboot.restful.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.collect.Lists;
 import com.motorcli.springboot.restful.authentication.RestAuthenticationEntryPoint;
 import com.motorcli.springboot.restful.authentication.SkipPathRequestMatcher;
 import com.motorcli.springboot.restful.jwt.filter.AwareAuthenticationFailureHandler;
@@ -12,6 +11,8 @@ import com.motorcli.springboot.restful.jwt.provider.TokenAuthenticationProvider;
 import com.motorcli.springboot.restful.jwt.token.JWTHeaderTokenExtractor;
 import com.motorcli.springboot.restful.jwt.token.JWTTokenFactory;
 import com.motorcli.springboot.restful.token.TokenExtractor;
+import com.motorcli.springboot.restful.utils.DocketInfo;
+import com.motorcli.springboot.restful.utils.DocketUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,16 +24,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.context.request.async.DeferredResult;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
-import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static springfox.documentation.builders.PathSelectors.regex;
+import static com.google.common.collect.Lists.newArrayList;
 
 
 public abstract class AbstractJWTConfiguration extends WebSecurityConfigurerAdapter {
@@ -67,7 +66,7 @@ public abstract class AbstractJWTConfiguration extends WebSecurityConfigurerAdap
     }
 
     private TokenAuthenticationProcessingFilter buildTokenAuthenticationProcessingFilter() throws Exception {
-        List<String> list = Lists.newArrayList(TOKEN_BASED_AUTH_ENTRY_POINT);
+        List<String> list = newArrayList(TOKEN_BASED_AUTH_ENTRY_POINT);
         SkipPathRequestMatcher matcher = new SkipPathRequestMatcher(list);
         TokenAuthenticationProcessingFilter filter = new TokenAuthenticationProcessingFilter(failureHandler, tokenExtractor, matcher);
         filter.setAuthenticationManager(super.authenticationManager());
@@ -109,27 +108,13 @@ public abstract class AbstractJWTConfiguration extends WebSecurityConfigurerAdap
 
     @Bean
     public Docket authDoc() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("Auth 接口")
-                .genericModelSubstitutes(DeferredResult.class)
-                .useDefaultResponseMessages(false)
-                .forCodeGeneration(true)
-                .pathMapping("/")
-                .select()
-                .paths(regex("/authentication/.*"))//过滤的接口
-                .build()
-                .apiInfo(apiInfo());
-
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .groupName("Auth 接口")
-//                .genericModelSubstitutes(DeferredResult.class)
-//                .useDefaultResponseMessages(false)
-//                .forCodeGeneration(true)
-//                .select()
-//                .apis(RequestHandlerSelectors.basePackage("com.motorcli.springboot.restful.auth.controller"))
-//                .paths(PathSelectors.any())
-//                .build()
-//                .apiInfo(apiInfo());
+        DocketInfo docketInfo = DocketInfo
+                .builder()
+                .groupName("Authentication 接口")
+                .basePackage("com.motorcli.springboot.restful.jwt.controller")
+                .apiInfo(apiInfo())
+                .build();
+        return DocketUtils.JWTBuilder(docketInfo);
     }
 
     private ApiInfo apiInfo() {

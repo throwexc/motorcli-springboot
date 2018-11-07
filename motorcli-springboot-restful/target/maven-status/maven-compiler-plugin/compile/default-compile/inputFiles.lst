@@ -1,6 +1,7 @@
 D:\Worksapce\gitproject\motorcli-springboot\motorcli-springboot-restful\src\main\java\com\motorcli\springboot\restful\config\MotorCLICORSProperties.java
-D:\Worksapce\gitproject\motorcli-springboot\motorcli-springboot-restful\src\main\java\com\motorcli\springboot\restful\jwt\controller\AuthenticationResponse.java
 D:\Worksapce\gitproject\motorcli-springboot\motorcli-springboot-restful\src\main\java\com\motorcli\springboot\restful\token\TokenExtractor.java
+D:\Worksapce\gitproject\motorcli-springboot\motorcli-springboot-restful\src\main\java\com\motorcli\springboot\restful\utils\DocketInfo.java
+D:\Worksapce\gitproject\motorcli-springboot\motorcli-springboot-restful\src\main\java\com\motorcli\springboot\restful\utils\DocketUtils.java
 D:\Worksapce\gitproject\motorcli-springboot\motorcli-springboot-restful\src\main\java\com\motorcli\springboot\restful\jwt\token\BloomFilterTokenVerifier.java
 D:\Worksapce\gitproject\motorcli-springboot\motorcli-springboot-restful\src\main\java\com\motorcli\springboot\restful\result\ResultRecord.java
 D:\Worksapce\gitproject\motorcli-springboot\motorcli-springboot-restful\src\main\java\com\motorcli\springboot\restful\auth\Scopes.java

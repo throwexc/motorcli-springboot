@@ -1,3 +1,4 @@
+com\motorcli\springboot\restful\utils\DocketInfo$DocketInfoBuilder.class
 com\motorcli\springboot\restful\jwt\provider\TokenAuthenticationProvider.class
 com\motorcli\springboot\restful\result\ResultRecord.class
 com\motorcli\springboot\restful\result\AbstractResult.class
@@ -13,9 +14,11 @@ com\motorcli\springboot\restful\auth\UserContext.class
 com\motorcli\springboot\restful\jwt\token\RefreshToken.class
 com\motorcli\springboot\restful\dto\converter\AbstractDtoConverter.class
 com\motorcli\springboot\restful\dto\converter\TreeDataChanger.class
+com\motorcli\springboot\restful\utils\DocketInfo.class
 com\motorcli\springboot\restful\jwt\token\RawAccessToken.class
 com\motorcli\springboot\restful\config\MotorCLIWebSecurityAutoConfiguration.class
 com\motorcli\springboot\restful\jwt\controller\AuthenticationController.class
+com\motorcli\springboot\restful\utils\DocketUtils.class
 com\motorcli\springboot\restful\MotorApiBase.class
 com\motorcli\springboot\restful\jwt\controller\RefreshTokenRequest.class
 com\motorcli\springboot\restful\token\TokenExtractor.class

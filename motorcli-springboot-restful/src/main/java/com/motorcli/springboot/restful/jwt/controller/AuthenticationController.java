@@ -24,7 +24,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-@Api(tags = {"Authentication Controller"})
+@Api(tags = {"Authentication"}, value = "JWT 授权接口")
 @Slf4j
 public class AuthenticationController {
 
@@ -56,7 +56,7 @@ public class AuthenticationController {
         return token;
     }
 
-    @GetMapping("/authentication/refresh_token")
+    @GetMapping("/authentication/token/refresh")
     @ApiOperation("刷新 Token")
     public Token refreshToken(@RequestBody RefreshTokenRequest request) {
         String tokenPayload = request.getRefreshToken();
