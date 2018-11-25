@@ -4,7 +4,7 @@ import com.motorcli.springboot.restful.token.Token;
 import io.jsonwebtoken.Claims;
 import io.swagger.annotations.ApiModel;
 
-@ApiModel("TOKEN 信息")
+@ApiModel(description = "TOKEN 信息")
 public class JWTAccessToken implements Token {
 
     private final String rawToken;

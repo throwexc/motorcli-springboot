@@ -9991,7 +9991,7 @@
 .swagger-ui .download-contents {
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    right: 30px;
     cursor: pointer;
     background: #7d8293;
     text-align: center;
@@ -11298,6 +11298,11 @@
 
 .swagger-ui .Resizer.vertical.disabled {
     display: none
+}
+
+#authorize.lock {
+    color: #ff6060;
+    border-color: #ff6060;
 }
 
 /*# sourceMappingURL=swagger-ui.css.map*/

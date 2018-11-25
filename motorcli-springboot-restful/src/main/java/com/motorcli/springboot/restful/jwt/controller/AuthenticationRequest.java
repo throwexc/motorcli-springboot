@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@ApiModel("授权参数")
+@ApiModel(description = "授权参数")
 public class AuthenticationRequest {
 
     /**

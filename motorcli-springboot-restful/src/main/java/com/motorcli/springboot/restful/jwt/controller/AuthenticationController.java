@@ -22,10 +22,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(tags = {"Authentication"}, value = "JWT 授权接口")
-@Slf4j
 public class AuthenticationController {
 
     @Autowired

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Swagger UI</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="webjars/motorcli/restful/springfox.css?v=2.9.2" >
   <link rel="stylesheet" type="text/css" href="webjars/motorcli/restful/swagger-ui.css?v=2.9.2" >
   <link rel="icon" type="image/png" href="webjars/motorcli/restful/favicon-32x32.png?v=2.9.2" sizes="32x32" />
@@ -67,67 +68,12 @@
 
 <div id="swagger-ui"></div>
 
+<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="webjars/motorcli/restful/motorcli-api.js"></script>
+<script src="webjars/motorcli/restful/motorcli-api-swagger.js"></script>
 <script src="webjars/motorcli/restful/swagger-ui-bundle.js?v=2.9.2"></script>
 <script src="webjars/motorcli/restful/swagger-ui-standalone-preset.js?v=2.9.2"></script>
 <script src="webjars/motorcli/restful/springfox.js?v=2.9.2"></script>
-
-<script>
-    //window.onload = function () {
-        //var configObject = {};
-
-        // Apply mandatory parameters
-        // configObject.dom_id = "#swagger-ui";
-        // configObject.presets = [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset];
-        // configObject.layout = "StandaloneLayout";
-        // configObject.requestInterceptor = function (request) {
-        //     request.headers.Authorization = "Bearer " + abp.auth.getToken();
-        //     return request;
-        // };
-        // if (!configObject.hasOwnProperty("oauth2RedirectUrl")) {
-        //     configObject.oauth2RedirectUrl = window.location + "oauth2-redirect.html"; // use the built-in default
-        // }
-        // function getAuthorizeButtonText() {
-        //     return abp.auth.getToken() ? 'Logout' : 'Authorize';
-        // }
-        // function getAuthorizeButtonCssClass() {
-        //     return abp.auth.getToken() ? 'cancel' : 'authorize';
-        // }
-        // configObject.plugins = [
-        //     function (system) {
-        //         return {
-        //             components: {
-        //                 authorizeBtn: function () {
-        //                     return system.React.createElement("button",
-        //                         {
-        //                             id: "authorize",
-        //                             className: "btn " + getAuthorizeButtonCssClass(),
-        //                             style: {
-        //                                 lineHeight: "normal"
-        //                             },
-        //                             onClick: function () {
-        //                                 var authorizeButton = document.getElementById('authorize');
-        //                                 if (abp.auth.getToken()) {
-        //                                     abp.swagger.logout();
-        //                                     authorizeButton.innerText = getAuthorizeButtonText();
-        //                                     authorizeButton.className = 'btn ' + getAuthorizeButtonCssClass();
-        //                                 } else {
-        //                                     abp.swagger.openAuthDialog(function () {
-        //                                         authorizeButton.innerText = getAuthorizeButtonText();
-        //                                         authorizeButton.className = 'btn ' + getAuthorizeButtonCssClass();
-        //                                         abp.swagger.closeAuthDialog();
-        //                                     });
-        //                                 }
-        //                             }
-        //                         }, getAuthorizeButtonText());
-        //                 }
-        //             }
-        //         }
-        //     }
-        // ];
-        // // Build a system
-        // SwaggerUIBundle(configObject);
-    //}
-</script>
 </body>
 
 </html>
