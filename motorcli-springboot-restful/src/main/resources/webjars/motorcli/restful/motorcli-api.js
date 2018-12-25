@@ -124,6 +124,7 @@ var mcApi = mcApi || {};
     };
 
     mcApi.onComplete = function() {
+
         var $btn = $("#authorize");
 
         if (mcApi.auth.getToken()) {

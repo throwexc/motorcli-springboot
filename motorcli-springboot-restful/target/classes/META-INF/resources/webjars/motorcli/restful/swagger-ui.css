@@ -10976,7 +10976,11 @@
 
 .swagger-ui .topbar {
     padding: 8px 0;
-    background-color: #89bf04
+    background-color: #3c3f41;
+}
+
+.swagger-ui .topbar .select-label {
+    color: #ffffff;
 }
 
 .swagger-ui .topbar .topbar-wrapper, .swagger-ui .topbar a {
@@ -11038,7 +11042,7 @@
 }
 
 .swagger-ui .topbar .download-url-wrapper .select-label span {
-    font-size: 16px;
+    font-size: 14px;
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;

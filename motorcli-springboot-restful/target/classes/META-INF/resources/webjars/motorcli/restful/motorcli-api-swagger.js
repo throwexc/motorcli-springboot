@@ -13,7 +13,7 @@ var mcApi = mcApi || {};
         var cookieAuth = new SwaggerClient.ApiKeyAuthorization(mcApi.auth.tokenHeaderName, 'Bearer ' + authToken, 'header');
         swaggerUi.api.clientAuthorizations.add('bearerAuth', cookieAuth);
         return true;
-    }
+    };
 
 
     function loginUserInternal(tenantId, callback) {
@@ -59,13 +59,13 @@ var mcApi = mcApi || {};
 
     mcApi.swagger.logout = function () {
         mcApi.auth.clearToken();
-    }
+    };
 
     mcApi.swagger.closeAuthDialog = function () {
         if (document.getElementById('motorcli-api-auth-dialog')) {
             document.getElementsByClassName("swagger-ui")[1].removeChild(document.getElementById('motorcli-api-auth-dialog'));
         }
-    }
+    };
 
     mcApi.swagger.openAuthDialog = function (loginCallback) {
         mcApi.swagger.closeAuthDialog();
@@ -141,7 +141,7 @@ var mcApi = mcApi || {};
             mcApi.swagger.login(loginCallback);
         };
         authBtnWrapper.appendChild(authorizeButton);
-    }
+    };
 
     function createInput(container, id, title, type) {
         var wrapper = document.createElement('div');
@@ -162,7 +162,18 @@ var mcApi = mcApi || {};
         input.style.width = '100%';
 
         section.appendChild(input);
-    }
+    };
+
+    // UI 替换部分
+    mcApi.uiReady = function() {
+        setTimeout(function() {
+            $(".swagger-ui .topbar .wrapper .topbar-wrapper .link img").remove();
+            $(".swagger-ui .topbar .wrapper .topbar-wrapper .link span")
+                .html("Motor CLI API Docs");
+            $(".swagger-ui .topbar .wrapper .topbar-wrapper .download-url-wrapper .select-label span")
+                .html("选择文档");
+        }, 500);
+    };
 
     w.mcApi = mcApi;
 })(window, jQuery);
