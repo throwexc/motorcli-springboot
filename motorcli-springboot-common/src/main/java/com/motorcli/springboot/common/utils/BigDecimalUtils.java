@@ -18,7 +18,7 @@ public class BigDecimalUtils {
         if(val == null) {
             val = 0.0;
         }
-        return  create(val + "");
+        return create(val + "");
     }
 
     /**
@@ -30,7 +30,7 @@ public class BigDecimalUtils {
         if(val == null) {
             val = 0.0f;
         }
-        return  create(val + "");
+        return create(val + "");
     }
 
     /**
@@ -42,7 +42,7 @@ public class BigDecimalUtils {
         if(val == null) {
             val = 0;
         }
-        return  create(val + "");
+        return create(val + "");
     }
 
     /**
