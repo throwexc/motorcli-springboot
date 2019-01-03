@@ -3,6 +3,7 @@ package com.motorcli.springboot.web.view;
 import com.motorcli.springboot.common.utils.FileUtils;
 import org.springframework.web.servlet.View;
 
+import javax.activation.MimetypesFileTypeMap;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,13 +24,13 @@ public class FileView implements View {
 
     public FileView(File file, String contentType) {
         this.file = file;
-        this.contentType = contentType;
+        this.contentType = new MimetypesFileTypeMap().getContentType(this.file);
     }
 
     public FileView(InputStream inputStream, String fileName, String contentType) {
         this.fileName = fileName;
         this.inputStream = inputStream;
-        this.contentType = contentType;
+        this.contentType = new MimetypesFileTypeMap().getContentType(this.fileName);
     }
 
     @Override
