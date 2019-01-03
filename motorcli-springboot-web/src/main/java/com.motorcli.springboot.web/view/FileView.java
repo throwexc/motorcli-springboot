@@ -22,12 +22,12 @@ public class FileView implements View {
 
     private String contentType;
 
-    public FileView(File file, String contentType) {
+    public FileView(File file) {
         this.file = file;
         this.contentType = new MimetypesFileTypeMap().getContentType(this.file);
     }
 
-    public FileView(InputStream inputStream, String fileName, String contentType) {
+    public FileView(InputStream inputStream, String fileName) {
         this.fileName = fileName;
         this.inputStream = inputStream;
         this.contentType = new MimetypesFileTypeMap().getContentType(this.fileName);
