@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Slf4j
+@ConditionalOnProperty(name = "motorcli.jwt.enable", havingValue = "true", matchIfMissing = false)
 @RestController
 @RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(tags = {"Authentication"}, value = "JWT 授权接口")

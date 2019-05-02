@@ -17,7 +17,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public class MotorCLIWebSecurityAutoConfiguration {
 
     @Configuration
-    @ConditionalOnProperty(name = "motorcli.jwt.enable", havingValue = "true", matchIfMissing = true)
+    @ConditionalOnProperty(name = "motorcli.jwt.enable", havingValue = "true", matchIfMissing = false)
     @EnableConfigurationProperties({MotorCLIJWTProperties.class})
     @Order(99)
     public static class MotorCLIJWTConfig extends AbstractJWTConfiguration {
@@ -28,7 +28,7 @@ public class MotorCLIWebSecurityAutoConfiguration {
     }
 
     @Configuration
-    @ConditionalOnProperty(name = "motorcli.cors.enable", havingValue = "true", matchIfMissing = true)
+    @ConditionalOnProperty(name = "motorcli.cors.enable", havingValue = "true", matchIfMissing = false)
     @EnableConfigurationProperties({MotorCLICORSProperties.class})
     @Order(100)
     public static class MotorCLICORSConfig extends AbstractCORSConfiguration {
