@@ -8,6 +8,7 @@ import org.springframework.core.env.Environment;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 @ConfigurationProperties(
         prefix = "spring.data.mongodb"
@@ -153,7 +154,7 @@ public class MotorCLIMongoProperties {
         }
 
         String host = this.host == null?"localhost":this.host;
-        return new MongoClient(Collections.singletonList(new ServerAddress(host, port)), Collections.emptyList(), options);
+        return new MongoClient(Collections.singletonList(new ServerAddress(host, port)), options);
     }
 
     private MongoClient createNetworkMongoClient(MongoClientOptions options) {
@@ -166,16 +167,16 @@ public class MotorCLIMongoProperties {
                 options = MongoClientOptions.builder().build();
             }
 
-            ArrayList credentials = new ArrayList();
+            MongoCredential credential = null;
             String host;
             if(this.hasCustomCredentials()) {
                 host = this.authenticationDatabase == null?this.getMongoClientDatabase():this.authenticationDatabase;
-                credentials.add(MongoCredential.createScramSha1Credential(this.username, host, this.password));
+                credential = MongoCredential.createScramSha1Credential(this.username, host, this.password);
             }
 
             host = this.host == null?"localhost":this.host;
             int port = this.port != null?this.port.intValue():27017;
-            return new MongoClient(Collections.singletonList(new ServerAddress(host, port)), credentials, options);
+            return new MongoClient(Collections.singletonList(new ServerAddress(host, port)), credential, options);
         }
     }
 

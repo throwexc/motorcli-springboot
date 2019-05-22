@@ -1,8 +1,8 @@
 package com.motorcli.springboot.restful.dto.converter;
 
+import com.motorcli.springboot.common.dto.DataModel;
 import com.motorcli.springboot.common.exceptions.DataConverterException;
 import com.motorcli.springboot.common.utils.ClassUtils;
-import com.motorcli.springboot.restful.dto.EntityDataModel;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,7 +15,7 @@ public class ListConverter<T> extends AbstractDtoConverter<T> {
     }
 
     @Override
-    public <X extends EntityDataModel> List<X> toList(Class<X> clazz) throws DataConverterException {
+    public <X extends DataModel> List<X> toList(Class<X> clazz) throws DataConverterException {
         List<X> list = new ArrayList<>();
         try {
             for (T model : this.data) {

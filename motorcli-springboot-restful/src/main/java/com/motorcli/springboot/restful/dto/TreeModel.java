@@ -1,5 +1,6 @@
 package com.motorcli.springboot.restful.dto;
 
+import com.motorcli.springboot.common.dto.DataModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public abstract class TreeEntityDataModel<T> extends EntityDataModel<T> {
+public abstract class TreeModel<T> extends DataModel<T> {
 
     @ApiModelProperty("id")
     protected String id;
@@ -19,9 +20,9 @@ public abstract class TreeEntityDataModel<T> extends EntityDataModel<T> {
     @ApiModelProperty("子节点")
     protected List<?> children;
 
-    public TreeEntityDataModel() {}
+    public TreeModel() {}
 
-    public TreeEntityDataModel(T entity) {
+    public TreeModel(T entity) {
         super(entity);
     }
 }

@@ -1,7 +1,7 @@
 package com.motorcli.springboot.restful.dto.converter;
 
 import com.motorcli.springboot.common.exceptions.DataConverterException;
-import com.motorcli.springboot.restful.dto.TreeEntityDataModel;
+import com.motorcli.springboot.restful.dto.TreeModel;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,7 +19,7 @@ public class TreeConverter<T> extends ListConverter<T> {
         this.topId = topId;
     }
 
-    public <X extends TreeEntityDataModel> List<X> toTree(Class<X> clazz) throws DataConverterException {
+    public <X extends TreeModel> List<X> toTree(Class<X> clazz) throws DataConverterException {
         List<X> changeModelList = super.toList(clazz);
         TreeDataChanger<X> jsonTreeDtoOption = new TreeDataChanger(changeModelList, this.topId);
         return jsonTreeDtoOption.toTree();

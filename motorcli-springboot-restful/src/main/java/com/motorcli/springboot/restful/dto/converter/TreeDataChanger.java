@@ -1,13 +1,13 @@
 package com.motorcli.springboot.restful.dto.converter;
 
-import com.motorcli.springboot.restful.dto.TreeEntityDataModel;
+import com.motorcli.springboot.restful.dto.TreeModel;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class TreeDataChanger<T extends TreeEntityDataModel> {
+public class TreeDataChanger<T extends TreeModel> {
 
     private Collection<T> data;
 

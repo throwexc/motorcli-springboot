@@ -1,8 +1,12 @@
 package com.motorcli.springboot.common.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.motorcli.springboot.common.utils.ClassUtils;
+import org.springframework.util.ReflectionUtils;
+
+import java.lang.reflect.Field;
 
 /**
  *  DTO 基类
