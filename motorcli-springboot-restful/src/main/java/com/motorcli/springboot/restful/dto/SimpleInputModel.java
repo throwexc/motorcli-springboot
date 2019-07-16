@@ -1,5 +1,5 @@
 package com.motorcli.springboot.restful.dto;
 
-public class SimpleInputModel extends ValidationModel {
+public class SimpleInputModel extends ValidationModel<Object> {
 
 }
