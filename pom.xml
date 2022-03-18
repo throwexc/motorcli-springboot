@@ -16,7 +16,7 @@
         <!-- utils -->
         <commons.lang3.version>3.3.2</commons.lang3.version>
         <httpclient.version>4.5.13</httpclient.version>
-        <poi.version>3.16</poi.version>
+        <poi.version>5.2.1</poi.version>
         <!-- spring -->
         <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
         <springloaded.version>1.2.8.RELEASE</springloaded.version>
